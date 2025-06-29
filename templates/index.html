@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>مؤشر</title>
+  <style>
+    body {
+      background: #f0f0f0;
+      font-family: sans-serif;
+      text-align: center;
+    }
+    h1 {
+      margin-top: 20px;
+    }
+    .hex-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+      gap: 10px;
+    }
+    .hex {
+      width: 120px;
+      height: 104px;
+      background: #fff;
+      clip-path: polygon(
+        50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%
+      );
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      transition: transform 0.2s;
+    }
+    .hex:hover {
+      transform: scale(1.05);
+      background-color: #fefefe;
+    }
+    .hex span {
+      font-size: 14px;
+      font-weight: bold;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>مؤشر</h1>
+  <div class="hex-grid">
+    {% for gift in gifts %}
+    <div class="hex" onclick="alert('الرسم البياني لـ {{ gift.name }} لم يُبرمج بعد!')">
+      <span>{{ gift.name }}</span>
+      <span>{{ gift.price }} TON</span>
+    </div>
+    {% endfor %}
+  </div>
+</body>
+</html>
